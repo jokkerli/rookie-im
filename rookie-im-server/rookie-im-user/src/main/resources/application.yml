@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: dhand-portal
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.121.24:3344/rookie_im?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+server:
+  port: ${rookie-im.server.port}
