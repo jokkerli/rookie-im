@@ -1,9 +1,11 @@
 package com.rookie.im.user.domain.dto;
 
+import com.rookie.im.common.annotations.IsMobile;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,7 +25,7 @@ public class ImportUserEntity {
      * 用户手机号
      */
     //TODO 自定义注解 （判断是否符合手机号格式）
-//    @IsMobile
+    @IsMobile
     @NotNull(message = "手机号不能为空")
     @Schema(description = "用户手机号")
     private String mobile;
@@ -31,6 +33,7 @@ public class ImportUserEntity {
     /**
      * 用户邮箱
      */
+    @Email
     @Schema(description = "用户邮箱")
     private String email;
 

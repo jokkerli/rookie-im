@@ -10,7 +10,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.stereotype.Controller;
+
+import javax.validation.Valid;
 
 /**
  * <p>
@@ -30,7 +31,7 @@ public class UserController {
 
     @PutMapping("/import")
     @Operation(description = "批量导入用户")
-    public ApiResult<ImportUserResp> importUser(@RequestBody ImportUserRequest importUserRequest){
+    public ApiResult<ImportUserResp> importUser(@RequestBody @Valid ImportUserRequest importUserRequest){
         ImportUserResp importUserResp = userService.importUser(importUserRequest);
         return ApiResult.success(importUserResp);
     }

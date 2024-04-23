@@ -38,7 +38,6 @@ public class UserServiceImpl implements IUserService {
             throw  new UserException(UserErrorEnum.IMPORT_USER_OUT_OF_LIMIT);
         }
 
-
         ImportUserResp importUserResp = new ImportUserResp();
 
         ArrayList<String> userList = new ArrayList<>();

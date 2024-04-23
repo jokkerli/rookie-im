@@ -1,9 +1,11 @@
 package com.rookie.im.user.handler;
 
 import com.google.protobuf.Api;
+import com.rookie.im.common.exception.CommonErrorEnum;
 import com.rookie.im.common.exception.UserException;
 import com.rookie.im.common.result.ApiResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -23,5 +25,11 @@ public class GlobalExceptionHandler {
         return ApiResult.fail(e.getCode(),e.getMsg());
     }
 
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ApiResult handlerMethodArgumentNotValidException(MethodArgumentNotValidException e){
+        log.info("接收到了异常{}",e.getMessage(),e);
+        return ApiResult.fail(CommonErrorEnum.PARAM_INVALID.getErrorCode(),CommonErrorEnum.PARAM_INVALID.getErrorMsg());
+    }
 
 }
