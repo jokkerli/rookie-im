@@ -10,6 +10,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <p>
  * 菜鸟 IM 用户表 服务实现类
@@ -37,4 +40,23 @@ public class UserDao extends ServiceImpl<UserMapper, User>{
         Page<User> users = userMapper.selectPage(page, queryWrapper);
         return users;
     }
+
+    public User getUserInfoByUserId(String userId, Long appId) {
+        User user = query().eq("user_id", userId).eq("app_id", appId).one();
+        return user;
+    }
+
+
+    public boolean updateUserInfo(User update) {
+        return lambdaUpdate()
+                .eq(User::getUserId, update.getUserId())
+                .set(User::getUserName, update.getUserName())
+                .set(User::getAvatar, update.getAvatar())
+                .set(User::getSelfSignature, update.getSelfSignature())
+                .set(User::getExtra, update.getExtra())
+                .set(User::getFriendAllowType, update.getFriendAllowType())
+                .update();
+    }
+
+//
 }

@@ -3,7 +3,10 @@ package com.rookie.im.user.service;
 import com.rookie.im.common.result.PagedResponse;
 import com.rookie.im.user.domain.dto.ImportUserEntity;
 import com.rookie.im.user.domain.dto.UserEntity;
+import com.rookie.im.user.domain.vo.req.GetUserInfoReq;
 import com.rookie.im.user.domain.vo.req.ImportUserRequest;
+import com.rookie.im.user.domain.vo.req.ModifyUserRequest;
+import com.rookie.im.user.domain.vo.resp.GetUserInfoResp;
 import com.rookie.im.user.domain.vo.resp.ImportUserResp;
 
 import java.util.List;
@@ -26,4 +29,8 @@ public interface IUserService{
     UserEntity getSingleUserInfo(String userId, Long appId);
 
     PagedResponse<UserEntity> getAllUserInfo(Long appId, Integer page, Integer pageSize);
+
+    GetUserInfoResp getUserInfo(GetUserInfoReq request);
+
+    void modifyUserInfo(ModifyUserRequest request);
 }
