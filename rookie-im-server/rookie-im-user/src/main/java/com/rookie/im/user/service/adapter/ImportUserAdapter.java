@@ -2,6 +2,7 @@ package com.rookie.im.user.service.adapter;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.lang.UUID;
+import com.rookie.im.common.enums.YesOrNoEnum;
 import com.rookie.im.user.domain.dto.ImportUserEntity;
 import com.rookie.im.user.domain.dto.UserEntity;
 import com.rookie.im.user.domain.entity.User;
@@ -18,12 +19,9 @@ public class ImportUserAdapter {
     public static User importUserSave(Long appId, ImportUserEntity entity) {
         User user = new User();
         BeanUtil.copyProperties(entity, user);
-        // TODO 在这里设置默认属性
         user.setAppId(appId);
-        // TODO 这里可以使用雪花算法
         user.setUserId(UUID.randomUUID().toString());
-        //TODO 修改出枚举  YESORNO
-        user.setForbiddenFlag(0);
+        user.setForbiddenFlag(YesOrNoEnum.NO.getStatus());
         return user;
     }
 

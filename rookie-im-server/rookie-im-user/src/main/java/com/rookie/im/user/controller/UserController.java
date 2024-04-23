@@ -2,6 +2,8 @@ package com.rookie.im.user.controller;
 
 
 import com.rookie.im.common.result.ApiResult;
+import com.rookie.im.common.result.PagedResponse;
+import com.rookie.im.user.domain.dto.UserEntity;
 import com.rookie.im.user.domain.vo.req.ImportUserRequest;
 import com.rookie.im.user.domain.vo.resp.ImportUserResp;
 import com.rookie.im.user.service.IUserService;
@@ -37,7 +39,52 @@ public class UserController {
     }
 
 
-//    RuntimeException
+    @GetMapping("/getSingleUserInfo")
+    @Operation(description = "获取单个用户信息")
+    public ApiResult<UserEntity> getSingleUserInfo(String userId, Long appId){
+        UserEntity singleUserInfo = userService.getSingleUserInfo(userId, appId);
+        return ApiResult.success(singleUserInfo);
+    }
+
+    @GetMapping("/getAllUserInfo")
+    @Operation(description = "获取所有用户信息列表")
+    public ApiResult<PagedResponse<UserEntity>> getAllUserInfo(@RequestParam(required = false, defaultValue = "1") Integer page,
+                                                               @RequestParam(required = false, defaultValue = "10") Integer pageSize,
+                                                               Long appId) {
+        PagedResponse<UserEntity> userEntityList = userService.getAllUserInfo(appId, page, pageSize);
+        return ApiResult.success(userEntityList);
+    }
+
+
+//    @PostMapping("/modify")
+//    @ApiOperation(value = "修改用户资料")
+//    public ApiResult<Void> modifyUserInfo(@RequestBody @Valid ModifyUserRequest request){
+//        userService.modifyUserInfo(request);
+//        return ApiResult.success();
+//    }
+//
+//    @GetMapping("/getUserInfo")
+//    @ApiOperation(value = "批量获取用户信息")
+//    public ApiResult<GetUserInfoResp> getUserInfo(GetUserInfoReq request){
+//        GetUserInfoResp userInfo = userService.getUserInfo(request);
+//        return ApiResult.success(userInfo);
+//    }
+//
+//    @GetMapping("/getSingleUserInfo")
+//    @ApiOperation(value = "获取单个用户信息")
+//    public ApiResult<UserEntity> getSingleUserInfo(String userId, Long appId){
+//        UserEntity singleUserInfo = userService.getSingleUserInfo(userId, appId);
+//        return ApiResult.success(singleUserInfo);
+//    }
+//
+//    @GetMapping("/getAllUserInfo")
+//    @ApiOperation(value = "获取所有用户信息列表")
+//    public ApiResult<PagedResponse<UserEntity>> getAllUserInfo(@RequestParam(required = false, defaultValue = "1") Integer page,
+//                                                               @RequestParam(required = false, defaultValue = "10") Integer pageSize,
+//                                                               Long appId) {
+//        PagedResponse<UserEntity> userEntityList = userService.getAllUserInfo(appId, page, pageSize);
+//        return ApiResult.success(userEntityList);
+//    }
 
 }
 
