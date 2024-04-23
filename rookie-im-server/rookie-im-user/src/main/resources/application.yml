@@ -8,5 +8,20 @@ spring:
     url: jdbc:mysql://192.168.121.24:3344/rookie_im?useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 server:
   port: ${rookie-im.server.port}
+
+# spring-doc 接口文档
+springdoc:
+  api-docs:
+    enabled: true # 是否启用接口文档
+knife4j:
+  enable: true # 是否启用 knife4j 增强,如果只是使用 knife4j 的 UI,则可以关闭
+#by zhengkai.blog.csdn.net
+#mybatis-plus配置控制台打印完整带参数SQL语句
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
