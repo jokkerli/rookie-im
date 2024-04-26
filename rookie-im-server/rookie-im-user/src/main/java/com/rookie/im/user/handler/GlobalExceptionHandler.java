@@ -1,6 +1,8 @@
 package com.rookie.im.user.handler;
 
 import com.google.protobuf.Api;
+import com.rookie.im.common.exception.BusinessErrorEnum;
+import com.rookie.im.common.exception.BusinessException;
 import com.rookie.im.common.exception.CommonErrorEnum;
 import com.rookie.im.common.exception.UserException;
 import com.rookie.im.common.result.ApiResult;
@@ -30,6 +32,12 @@ public class GlobalExceptionHandler {
     public ApiResult handlerMethodArgumentNotValidException(MethodArgumentNotValidException e){
         log.info("接收到了异常{}",e.getMessage(),e);
         return ApiResult.fail(CommonErrorEnum.PARAM_INVALID.getErrorCode(),CommonErrorEnum.PARAM_INVALID.getErrorMsg());
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ApiResult handlerBusinessException(BusinessException e){
+        log.info("接收到了异常{}",e.getMessage(),e);
+        return ApiResult.fail(BusinessErrorEnum.BUSINESS_ERROR.getCode(),BusinessErrorEnum.BUSINESS_ERROR.getMsg());
     }
 
 }

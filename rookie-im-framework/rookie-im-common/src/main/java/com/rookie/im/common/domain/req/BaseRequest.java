@@ -1,5 +1,7 @@
 package com.rookie.im.common.domain.req;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
 
 import javax.validation.Valid;
@@ -12,8 +14,9 @@ import javax.validation.Valid;
  */
 
 @Data
+@Tag(name = "基础请求参数")
 public class BaseRequest {
-
+    @Schema(description = "app ID")
     private Long appId;
 
 }

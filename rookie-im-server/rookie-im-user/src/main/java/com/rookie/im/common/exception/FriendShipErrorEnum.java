@@ -1,39 +1,34 @@
 package com.rookie.im.common.exception;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 /**
  * @Author: Jokeer
  * @Description: TODO
- * @Date: 2024/4/23 13:56
+ * @Date: 2024/4/24 13:57
  * @Version: 1.0
  */
 @AllArgsConstructor
 @Getter
-public enum  UserErrorEnum implements ErrorEnum{
+public enum  FriendShipErrorEnum implements ErrorEnum{
 
-    IMPORT_USER_OUT_OF_LIMIT(-1,"导入用户记录总数超出最大限制"),
-    MODIFY_USER_INFO_ERROR(-3,"修改用户信息错误"),
-    USER_IS_NOT_EXIST(-5,"查找的用户不存在")
+    OUTBOUND_IMPORT_FRIEND_LIMIT(-4,"超出导入好友的最大限制"),
+    TO_IS_YOUR_FRIEND(-5,"TO好友已是你的好友")
     ;
-
-
 
     private Integer code;
 
     private String msg;
 
 
-
     @Override
     public Integer getErrorCode() {
-        return this.code;
+        return null;
     }
 
     @Override
     public String getErrorMsg() {
-        return this.msg;
+        return null;
     }
 }

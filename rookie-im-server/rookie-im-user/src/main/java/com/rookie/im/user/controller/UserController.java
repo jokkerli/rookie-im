@@ -35,7 +35,7 @@ public class UserController {
     private IUserService userService;
 
     @PutMapping("/import")
-    @Operation(description = "批量导入用户")
+    @Operation(summary  = "批量导入用户")
     public ApiResult<ImportUserResp> importUser(@RequestBody @Valid ImportUserRequest importUserRequest){
         ImportUserResp importUserResp = userService.importUser(importUserRequest);
         return ApiResult.success(importUserResp);
@@ -43,14 +43,14 @@ public class UserController {
 
 
     @GetMapping("/getSingleUserInfo")
-    @Operation(description = "获取单个用户信息")
+    @Operation(summary  = "获取单个用户信息")
     public ApiResult<UserEntity> getSingleUserInfo(String userId, Long appId){
         UserEntity singleUserInfo = userService.getSingleUserInfo(userId, appId);
         return ApiResult.success(singleUserInfo);
     }
 
     @GetMapping("/getAllUserInfo")
-    @Operation(description = "获取所有用户信息列表")
+    @Operation(summary  = "获取所有用户信息列表")
     public ApiResult<PagedResponse<UserEntity>> getAllUserInfo(@RequestParam(required = false, defaultValue = "1") Integer page,
                                                                @RequestParam(required = false, defaultValue = "10") Integer pageSize,
                                                                Long appId) {
@@ -60,14 +60,14 @@ public class UserController {
 
 
     @GetMapping("/getUserInfo")
-    @Operation(description = "批量获取用户信息")
+    @Operation(summary  = "批量获取用户信息")
     public ApiResult<GetUserInfoResp> getUserInfo(GetUserInfoReq request){
         GetUserInfoResp userInfo = userService.getUserInfo(request);
         return ApiResult.success(userInfo);
     }
 
     @PostMapping("/modify")
-    @Operation(description = "修改用户资料")
+    @Operation(summary  = "修改用户资料")
     public ApiResult<Void> modifyUserInfo(@RequestBody @Valid ModifyUserRequest request){
         userService.modifyUserInfo(request);
         return ApiResult.success();

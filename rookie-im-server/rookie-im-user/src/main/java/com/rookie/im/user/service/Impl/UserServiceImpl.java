@@ -8,6 +8,7 @@ import com.rookie.im.common.exception.BusinessException;
 import com.rookie.im.common.exception.UserErrorEnum;
 import com.rookie.im.common.exception.UserException;
 import com.rookie.im.common.result.PagedResponse;
+import com.rookie.im.common.util.AssertUtil;
 import com.rookie.im.user.dao.UserDao;
 import com.rookie.im.user.domain.dto.ImportUserEntity;
 import com.rookie.im.user.domain.dto.UserEntity;
@@ -74,13 +75,7 @@ public class UserServiceImpl implements IUserService {
     public UserEntity getSingleUserInfo(String userId, Long appId) {
 
         User user = userDao.getSingleUserInfo(userId, appId);
-
-        //TODO 创建AssertUtil进行断言判断
-//        AssertUtil.isEmpty(user, UserErrorEnum.USER_IS_NOT_EXIST,"");
-        if(user == null){
-            return null;
-        }
-
+        AssertUtil.isEmpty(user, UserErrorEnum.USER_IS_NOT_EXIST,"");
         return ImportUserAdapter.buildUserInfo(user);
     }
 

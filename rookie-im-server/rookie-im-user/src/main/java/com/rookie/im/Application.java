@@ -1,4 +1,4 @@
-package com.rookie.im.user;
+package com.rookie.im;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
