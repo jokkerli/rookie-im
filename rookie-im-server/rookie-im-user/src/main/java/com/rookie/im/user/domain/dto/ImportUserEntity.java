@@ -24,7 +24,6 @@ public class ImportUserEntity {
     /**
      * 用户手机号
      */
-    //TODO 自定义注解 （判断是否符合手机号格式）
     @IsMobile
     @NotNull(message = "手机号不能为空")
     @Schema(description = "用户手机号")

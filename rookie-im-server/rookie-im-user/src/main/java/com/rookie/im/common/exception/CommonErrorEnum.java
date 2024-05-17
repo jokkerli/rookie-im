@@ -30,4 +30,5 @@ public enum  CommonErrorEnum implements ErrorEnum{
     public String getErrorMsg() {
         return this.msg;
     }
+
 }
