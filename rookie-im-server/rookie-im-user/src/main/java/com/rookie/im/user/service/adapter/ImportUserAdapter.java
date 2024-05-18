@@ -2,7 +2,7 @@ package com.rookie.im.user.service.adapter;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.lang.UUID;
-import com.rookie.im.common.enums.YesOrNoEnum;
+
 import com.rookie.im.user.domain.dto.ImportUserEntity;
 import com.rookie.im.user.domain.dto.UserEntity;
 import com.rookie.im.user.domain.entity.User;

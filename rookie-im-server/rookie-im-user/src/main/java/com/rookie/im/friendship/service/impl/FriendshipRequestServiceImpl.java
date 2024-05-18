@@ -2,7 +2,6 @@ package com.rookie.im.friendship.service.impl;
 
 import com.rookie.im.common.enums.ApproveFriendRequestEnum;
 import com.rookie.im.common.enums.FriendShipRequestReadStatusEnum;
-import com.rookie.im.common.enums.YesOrNoEnum;
 import com.rookie.im.friendship.dao.FriendshipRequestDao;
 import com.rookie.im.friendship.domain.dto.FriendDto;
 import com.rookie.im.friendship.domain.entity.FriendshipRequest;

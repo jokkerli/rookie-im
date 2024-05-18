@@ -35,6 +35,7 @@ public enum  FriendShipRequestReadStatusEnum {
 
     static {
         cache = Arrays.stream(FriendShipRequestReadStatusEnum.values()).collect(Collectors.toMap(FriendShipRequestReadStatusEnum::getStatus, Function.identity()));
+//        cache = Arrays.stream(FriendShipRequestReadStatusEnum.values()).collect()
     }
 
 

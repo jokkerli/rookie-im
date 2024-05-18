@@ -5,7 +5,6 @@ import com.rookie.im.common.enums.FriendShipStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
-import sun.plugin.dom.exception.NoModificationAllowedException;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
